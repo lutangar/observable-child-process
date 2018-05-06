@@ -9,7 +9,7 @@ const spawn = (command, args = [], options = {}) => Observable.create((observer)
 
     readline
         .createInterface({ input: spawnee.stdout, terminal: false })
-        .on('line', line => console.log(chalk`{white ${line}}`))
+        .on('line', line => observer.next(line))
     ;
 
     readline
